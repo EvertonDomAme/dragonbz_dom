@@ -1,15 +1,31 @@
-import './Navbar.scss';
+import logo from './logo.png';
+import * as S from './styled';
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
-    return (
-        <div className="navbar">
-            <ul className="navbar__list">
-                <li className="navbar__list__item"><a  href="#!">Início</a></li>
-                <li className="navbar__list__item"><a  href="#!">Criar</a></li>
-                <li className="navbar__list__item"><a  href="#!">Deletar Tudo</a></li>
-                <li className="navbar__list__item"><a  href="#!">Sobre</a></li>
-                <li className="navbar__list__item"><a  href="#!">Algo mais</a></li>
-            </ul>
-        </div>
-    )
+  return (
+    <S.Navbar>
+      <Link to="/">
+        <S.Img src={logo} alt="Dragon Ball" />
+      </Link>
+
+      <S.List>
+        <S.ListItem>
+          <S.LinkedPage to="/">Início</S.LinkedPage>
+        </S.ListItem>
+
+        <S.ListItem>
+          <S.LinkedPage to="/create">Criar</S.LinkedPage>
+        </S.ListItem>
+
+        <S.ListItem>
+          <S.LinkedPage to="/deleteall">Deletar Tudo</S.LinkedPage>
+        </S.ListItem>
+
+        <S.ListItem>
+          <S.LinkedPage to="/about">Sobre</S.LinkedPage>
+        </S.ListItem>
+      </S.List>
+    </S.Navbar>
+  );
 }
